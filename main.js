@@ -1,3 +1,4 @@
+let rapidShowMore = false;
 document.getElementById('search').addEventListener('click', searchUser);
 document.getElementById('search').addEventListener('click', getUserStats);
 
@@ -7,7 +8,10 @@ async function exampleUser() {
     console.log(data);
     document.getElementById('pfp').src = `${data.avatar}`;
     document.getElementById('name').innerText = `Username: ${data.username.toUpperCase()}`;
-    document.getElementById('url').innerText = `${data.url}`;
+
+    let anchor = document.createElement('a');
+    document.getElementById('url').innerText = `Chess.com Account`;
+    document.getElementById('url').href = data.url;
     document.getElementById('followers').innerText = `Followers: ${data.followers}`;
 }
 exampleUser();
@@ -27,12 +31,12 @@ getExampleUserStats();
 async function loadRapidLeaderBoard() {
     const res = await fetch(`https://api.chess.com/pub/leaderboards`);
     const data = await res.json();
-    for (let i = 0; i < 49; i++) {
-        const newLi = document.createElement('li');
-        const parent = document.getElementById('rapid-list');
-        parent.appendChild(newLi);
-        newLi.innerText = `${data.live_rapid[i].username} ${data.live_rapid[i].title}`;
-    }
+        for (let i = 0; i != 49; i++) {
+            const newLi = document.createElement('li');
+            const parent = document.getElementById('rapid-list');
+            parent.appendChild(newLi);
+            newLi.innerText = `${data.live_rapid[i].username} ${data.live_rapid[i].title}`;
+        }
 
     for (let i = 0; i < 49; i++) {
         const newLi = document.createElement('li');
@@ -56,8 +60,9 @@ async function searchUser() {
     const res = await fetch(`https://api.chess.com/pub/player/${username.value}`);
     const data = await res.json();
     document.getElementById('name').innerText = `Username: ${data.username.toUpperCase()}`;
-    document.getElementById('url').innerText = `${data.url}`;
-     document.getElementById('pfp').src = `${data.avatar}`;
+    document.getElementById('url').innerText = `Chess.com Account`;
+    document.getElementById('url').href = data.url;
+    document.getElementById('pfp').src = `${data.avatar}`;
     document.getElementById('followers').innerText = `Followers: ${data.followers}`;
 }
 
@@ -75,6 +80,12 @@ async function getUserStats() {
     // }
 }
 
+async function liveGames() {
+    const res = await fetch(`https://api.chess.com/pub/player/Hikaru/games/live/180/2`);
+    const data = await res.json();
+    console.log(data);
+}
 
+liveGames();
 
 
