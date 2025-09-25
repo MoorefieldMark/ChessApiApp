@@ -1,0 +1,6 @@
+#blitz-games {
+    display: grid;
+    border: 1px solid black;
+     grid-template-columns: 0px 350px 1fr;
+
+}
