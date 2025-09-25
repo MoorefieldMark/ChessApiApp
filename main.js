@@ -1,6 +1,14 @@
+//import Chessboard from '@chrisoakman/chessboardjs'
+//import 'chessboard/dist/chessboard-1.0.0.min.css'
+
+
+
 let rapidShowMore = false;
 document.getElementById('search').addEventListener('click', searchUser);
+document.getElementById('search').addEventListener('click', userLiveGames);
+document.getElementById('search').addEventListener('click', userRapidLiveGames);
 document.getElementById('search').addEventListener('click', getUserStats);
+
 
 async function exampleUser() {
     const res = await fetch(`https://api.chess.com/pub/player/Hikaru`);
@@ -28,35 +36,7 @@ async function getExampleUserStats() {
 getExampleUserStats();
 
 
-async function loadRapidLeaderBoard() {
-    const res = await fetch(`https://api.chess.com/pub/leaderboards`);
-    const data = await res.json();
-        for (let i = 0; i != 49; i++) {
-            const newLi = document.createElement('li');
-            const parent = document.getElementById('rapid-list');
-            parent.appendChild(newLi);
-            newLi.innerText = `${data.live_rapid[i].username} ${data.live_rapid[i].title}`;
-        }
-
-    for (let i = 0; i < 49; i++) {
-        const newLi = document.createElement('li');
-        const parent = document.getElementById('blitz-list');
-        parent.appendChild(newLi);
-        newLi.innerText = `${data.live_blitz[i].username} ${data.live_blitz[i].title}`;
-    }
-
-    for (let i = 0; i < 49; i++) {
-        const newLi = document.createElement('li');
-        const parent = document.getElementById('bullet-list');
-        parent.appendChild(newLi);
-        newLi.innerText = `${data.live_bullet[i].username} ${data.live_bullet[i].title}`;
-    }
-}
-
-loadRapidLeaderBoard();
-
 async function searchUser() {
-    const user = document.getElementById('DragonLearnsChess');
     const res = await fetch(`https://api.chess.com/pub/player/${username.value}`);
     const data = await res.json();
     document.getElementById('name').innerText = `Username: ${data.username.toUpperCase()}`;
@@ -80,12 +60,247 @@ async function getUserStats() {
     // }
 }
 
-async function liveGames() {
+async function exampleLiveGames() {
     const res = await fetch(`https://api.chess.com/pub/player/Hikaru/games/live/180/2`);
+    const data = await res.json();
+    console.log(data.games[0]);
+
+
+
+    var board = Chessboard('board1', {
+        position: data.games[0].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board1 = Chessboard('board2', {
+        position: data.games[1].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board2 = Chessboard('board3', {
+        position: data.games[2].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board3 = Chessboard('board4', {
+        position: data.games[3].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board4 = Chessboard('board5', {
+        position: data.games[4].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board5 = Chessboard('board6', {
+        position: data.games[5].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board6 = Chessboard('board7', {
+        position: data.games[6].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board7 = Chessboard('board8', {
+        position: data.games[7].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board8 = Chessboard('board9', {
+        position: data.games[8].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board9 = Chessboard('board10', {
+        position: data.games[9].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+}
+
+exampleLiveGames();
+
+async function exampleRapidLiveGames() {
+    const res = await fetch(`https://api.chess.com/pub/player/Hikaru/games/live/900/0`);
+    const data = await res.json();
+    console.log(data.games[0]);
+
+
+    var rapid1 = Chessboard('rapid1', {
+        position: data.games[0].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid2 = Chessboard('rapid2', {
+        position: data.games[1].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid3 = Chessboard('rapid3', {
+        position: data.games[2].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid4 = Chessboard('rapid4', {
+        position: data.games[3].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid5 = Chessboard('rapid5', {
+        position: data.games[4].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid6 = Chessboard('rapid6', {
+        position: data.games[5].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid7 = Chessboard('rapid7', {
+        position: data.games[6].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid8 = Chessboard('rapid8', {
+        position: data.games[7].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid9 = Chessboard('rapid9', {
+        position: data.games[8].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid10 = Chessboard('rapid10', {
+        position: data.games[9].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+}
+
+exampleRapidLiveGames();
+
+async function userLiveGames() {    
+    const res = await fetch(`https://api.chess.com/pub/player/${username.value}/games/live/180/2`);
+    const data = await res.json();
+    console.log(data.games[0]);
+
+    
+
+     var board = Chessboard('board1', {
+        position: data.games[0].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board1 = Chessboard('board2', {
+        position: data.games[1].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board2 = Chessboard('board3', {
+        position: data.games[2].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board3 = Chessboard('board4', {
+        position: data.games[3].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board4 = Chessboard('board5', {
+        position: data.games[4].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board5 = Chessboard('board6', {
+        position: data.games[5].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board6 = Chessboard('board7', {
+        position: data.games[6].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board7 = Chessboard('board8', {
+        position: data.games[7].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board8 = Chessboard('board9', {
+        position: data.games[8].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var board9 = Chessboard('board10', {
+        position: data.games[9].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+}
+
+async function userRapidLiveGames() {
+    const res = await fetch(`https://api.chess.com/pub/player/${username.value}/games/live/900/0`);
+    const data = await res.json();
+    console.log(data.games[0]);
+
+
+    var rapid1 = Chessboard('rapid1', {
+        position: data.games[0].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid2 = Chessboard('rapid2', {
+        position: data.games[1].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid3 = Chessboard('rapid3', {
+        position: data.games[2].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid4 = Chessboard('rapid4', {
+        position: data.games[3].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid5 = Chessboard('rapid5', {
+        position: data.games[4].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid6 = Chessboard('rapid6', {
+        position: data.games[5].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid7 = Chessboard('rapid7', {
+        position: data.games[6].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid8 = Chessboard('rapid8', {
+        position: data.games[7].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid9 = Chessboard('rapid9', {
+        position: data.games[8].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var rapid10 = Chessboard('rapid10', {
+        position: data.games[9].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+}
+
+
+
+
+async function tester() {
+    const res = await fetch(`https://api.chess.com/pub/player/Hikaru/games/live/900/10`);
     const data = await res.json();
     console.log(data);
 }
 
-liveGames();
-
-
+tester();
