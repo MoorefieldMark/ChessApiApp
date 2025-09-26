@@ -4,6 +4,13 @@
 
 
 let rapidShowMore = false;
+document.getElementById('search').addEventListener('click', () => {
+    searchUser();
+    userLiveGames();
+    userRapidLiveGames();
+    getUserStats();
+    userBulletlLiveGames();
+})
 document.getElementById('search').addEventListener('click', searchUser);
 document.getElementById('search').addEventListener('click', userLiveGames);
 document.getElementById('search').addEventListener('click', userRapidLiveGames);
@@ -289,6 +296,123 @@ async function userRapidLiveGames() {
     });
 
      var rapid10 = Chessboard('rapid10', {
+        position: data.games[9].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+}
+
+
+async function exampleBulletLiveGames() {
+    const res = await fetch(`https://api.chess.com/pub/player/Hikaru/games/live/60/1`);
+    const data = await res.json();
+    console.log(data.games[0]);
+
+
+    var classic1 = Chessboard('classic1', {
+        position: data.games[0].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic2 = Chessboard('classic2', {
+        position: data.games[1].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic3 = Chessboard('classic3', {
+        position: data.games[2].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic4 = Chessboard('classic4', {
+        position: data.games[3].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic5 = Chessboard('classic5', {
+        position: data.games[4].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic6 = Chessboard('classic6', {
+        position: data.games[5].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic7 = Chessboard('classic7', {
+        position: data.games[6].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic8 = Chessboard('classic8', {
+        position: data.games[7].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic9 = Chessboard('classic9', {
+        position: data.games[8].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic10 = Chessboard('classic10', {
+        position: data.games[9].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+}
+
+exampleBulletLiveGames();
+
+async function userBulletlLiveGames() {
+    const res = await fetch(`https://api.chess.com/pub/player/${username.value}/games/live/60/1`);
+    const data = await res.json();
+    console.log(data.games[0]);
+
+
+    var classic1 = Chessboard('classic1', {
+        position: data.games[0].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic2 = Chessboard('classic2', {
+        position: data.games[1].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic3 = Chessboard('classic3', {
+        position: data.games[2].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic4 = Chessboard('classic4', {
+        position: data.games[3].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic5 = Chessboard('classic5', {
+        position: data.games[4].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic6 = Chessboard('classic6', {
+        position: data.games[5].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic7 = Chessboard('classic7', {
+        position: data.games[6].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic8 = Chessboard('classic8', {
+        position: data.games[7].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic9 = Chessboard('classic9', {
+        position: data.games[8].fen,
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
+    });
+
+     var classic10 = Chessboard('classic10', {
         position: data.games[9].fen,
         pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png'
     });

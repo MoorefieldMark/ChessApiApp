@@ -17,15 +17,19 @@
 </head>
 </head>
 <body>
-    <button><a href="index.html">Home</a></button>
-    <button><a href="leaderboards.html">Leaderboard</a></button>
-    <input id="username" placeholder="Enter Username For Stats">
-    <button id="search">Search</button>
-    <h2 id="name">Username: </h2>
-    <img id="pfp">
-    <span><a id="url"></a></span>
-    <span id="followers"></span>
-
+    <header id="header">
+         <button class="header-btn"><a href="index.html">Home</a></button>
+         <button class="header-btn"><a href="leaderboards.html">Leaderboard</a></button>
+    </header>
+    <div id="user-stats">
+        <div id="user-search">
+            <input id="username" class="stats-search" placeholder="Enter Username For Stats">
+            <button id="search" class="stats-search">Search</button>
+        </div>
+        <h2 id="name">Username: </h2>
+        <img id="pfp">
+        <span><a id="url"></a></span>
+        <span id="followers"></span>
       <div>
         <ul>
             <li id="blitz">Blitz Rating: N/A</li>
@@ -35,7 +39,9 @@
         </ul>
     </div>
 
-<h2>Blitz Games</h2>
+    </div>
+
+<h2>Last Blitz Games</h2>
 <div id="blitz-games">
     <div id="board1" style="width: 300px"></div>
     <div id="board2" style="width: 300px"></div>
@@ -49,9 +55,8 @@
     <div id="board10" style="width: 300px"></div>
 </div>
 
-
-<div>
-    <h2>Rapid Games</h2>
+  <h2>Last 10 Rapid Games</h2>
+<div id="rapid-games">
     <div id="rapid1" style="width: 300px"></div>
     <div id="rapid2" style="width: 300px"></div>
     <div id="rapid3" style="width: 300px"></div>
@@ -64,11 +69,19 @@
     <div id="rapid10" style="width: 300px"></div>
 </div>
 
-
-
-
-    <div id="myBoard" style="width: 400px">
-
+  <h2>Last 10 Bullet Games</h2>
+<div id="rapid-games">
+    <div id="classic1" style="width: 300px"></div>
+    <div id="classic2" style="width: 300px"></div>
+    <div id="classic3" style="width: 300px"></div>
+    <div id="classic4" style="width: 300px"></div>
+    <div id="classic5" style="width: 300px"></div>
+    <div id="classic6" style="width: 300px"></div>
+    <div id="classic7" style="width: 300px"></div>
+    <div id="classic8" style="width: 300px"></div>
+    <div id="classic9" style="width: 300px"></div>
+    <div id="classic10" style="width: 300px"></div>
+</div>
     </div>
     <button><a href="index.html">Back to top</a></button>
 </body>
